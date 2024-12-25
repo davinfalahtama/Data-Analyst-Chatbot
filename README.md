@@ -65,6 +65,15 @@ This repository contains the code for a **Data Analyst Chatbot** built using Ope
      OPENAI_API_KEY=your_openai_api_key
      ASSISTANT_ID=your_assistant_id
      ```
+   - **How to obtain your OpenAI API key**:
+     1. Log in to your OpenAI account at [OpenAI Platform](https://platform.openai.com/).
+     2. Navigate to the **API Keys** section under your account settings.
+     3. Click "Create new secret key" and copy the generated key.
+
+   - **How to obtain your Assistant ID**:
+     1. Access the OpenAI Assistant management page.
+     2. Create a new assistant or select an existing one.
+     3. The Assistant ID will be displayed in the assistant settings or API integration section.
 
 4. Run the Streamlit application:
    ```bash
@@ -131,7 +140,6 @@ This repository contains the code for a **Data Analyst Chatbot** built using Ope
 - Enhance visualization options.
 
 ---
-
 
 ## Acknowledgments
 
