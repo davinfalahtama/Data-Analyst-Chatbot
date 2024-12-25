@@ -6,7 +6,7 @@ This repository contains the code for a **Data Analyst Chatbot** built using Ope
 
 ## Features
 
-- **File Uploads**: Users can upload CSV, Excel, or JSON files for analysis.
+- **File Uploads**: Users can upload CSV files for analysis.
 - **Natural Language Interaction**: Chat with the bot to analyze and explore the uploaded datasets.
 - **Code Interpreter**: Executes Python code to generate insights, visualizations, and more.
 - **Streamlit UI**: Provides an intuitive and interactive user interface for data analysis tasks.
@@ -65,6 +65,15 @@ This repository contains the code for a **Data Analyst Chatbot** built using Ope
      OPENAI_API_KEY=your_openai_api_key
      ASSISTANT_ID=your_assistant_id
      ```
+   - **How to obtain your OpenAI API key**:
+     1. Log in to your OpenAI account at [OpenAI Platform](https://platform.openai.com/).
+     2. Navigate to the **API Keys** section under your account settings.
+     3. Click "Create new secret key" and copy the generated key.
+
+   - **How to obtain your Assistant ID**:
+     1. Access the OpenAI Assistant management page.
+     2. Create a new assistant or select an existing one.
+     3. The Assistant ID will be displayed in the assistant settings or API integration section.
 
 4. Run the Streamlit application:
    ```bash
@@ -92,7 +101,7 @@ This repository contains the code for a **Data Analyst Chatbot** built using Ope
    streamlit run app.py
    ```
 
-2. Upload a dataset (CSV, Excel, or JSON) in the sidebar.
+2. Upload a dataset (CSV) in the sidebar.
 
 3. Start chatting with the assistant in the main interface:
    - Example prompts:
@@ -131,7 +140,6 @@ This repository contains the code for a **Data Analyst Chatbot** built using Ope
 - Enhance visualization options.
 
 ---
-
 
 ## Acknowledgments
 
