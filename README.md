@@ -6,7 +6,7 @@ This repository contains the code for a **Data Analyst Chatbot** built using Ope
 
 ## Features
 
-- **File Uploads**: Users can upload CSV, Excel, or JSON files for analysis.
+- **File Uploads**: Users can upload CSV files for analysis.
 - **Natural Language Interaction**: Chat with the bot to analyze and explore the uploaded datasets.
 - **Code Interpreter**: Executes Python code to generate insights, visualizations, and more.
 - **Streamlit UI**: Provides an intuitive and interactive user interface for data analysis tasks.
@@ -92,7 +92,7 @@ This repository contains the code for a **Data Analyst Chatbot** built using Ope
    streamlit run app.py
    ```
 
-2. Upload a dataset (CSV, Excel, or JSON) in the sidebar.
+2. Upload a dataset (CSV) in the sidebar.
 
 3. Start chatting with the assistant in the main interface:
    - Example prompts:
