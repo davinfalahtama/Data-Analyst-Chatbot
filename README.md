@@ -2,7 +2,7 @@
 
 This repository contains the code for a **Data Analyst Chatbot** built using OpenAI's Assistant (Code Interpreter) and Streamlit. The chatbot allows users to upload datasets and interact with the data through natural language queries. It leverages OpenAI’s powerful data analysis capabilities to perform operations like summarization, visualization, and statistical analysis.
 
-![demodachtbot-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/dfb191b1-06e8-4654-98dd-39530969a4b6)
+![demodachtbot-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/e5bb20d7-8a75-4030-bd5f-619f53f14cb9)
 
 ---
 
