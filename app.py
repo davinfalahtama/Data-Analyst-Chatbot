@@ -11,11 +11,14 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 # Load environment variables
-load_dotenv()
+# load_dotenv()
+
+# Hardcode API Key and Assistant ID
+API_KEY = "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"  # Replace with your actual OpenAI API key
+ASSISTANT_ID = "asst_ychdxm9OrsMkQkZsxFOEmFGr"  # Replace with your actual Assistant ID
 
 # Initialize OpenAI Client
-client = openai.Client(api_key=os.environ.get("OPENAI_API_KEY"))
-ASSISTANT_ID = os.environ.get("ASSISTANT_ID")
+client = openai.Client(api_key=API_KEY)
 
 # Initialize Streamlit Page
 st.set_page_config(page_title="Chat with Your Data", page_icon=":bar_chart:")
