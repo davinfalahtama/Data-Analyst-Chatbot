@@ -10,15 +10,12 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Load environment variables
-# load_dotenv()
-
-# Hardcode API Key and Assistant ID
-API_KEY = st.secrets["OPENAI_API_KEY"]
-ASSISTANT = st.secrets["ASSISTANT_ID"]
+# # Load environment variables
+load_dotenv()
 
 # Initialize OpenAI Client
-client = openai.Client(api_key=API_KEY)
+client = openai.Client(api_key=st.secrets["OPENAI_API_KEY"])
+ASSISTANT = st.secrets["ASSISTANT_ID"]
 
 # Initialize Streamlit Page
 st.set_page_config(page_title="Chat with Your Data", page_icon=":bar_chart:")
@@ -40,11 +37,9 @@ if "generated_file_ids" not in st.session_state:
     st.session_state.generated_file_ids = []
 
 # Function to upload file to OpenAI
-def upload_to_openai(filepath):
+def upload_to_openai(file):
     try:
-        with open(filepath, "rb") as file:
-            response = client.files.create(file=(os.path.basename(filepath), file),
-                                           purpose="assistants")
+        response = client.files.create(file=(file.name, file), purpose="assistants")
         logger.info("File uploaded successfully with file ID: %s", response.id)
         return response.id
     except Exception as e:
@@ -69,13 +64,8 @@ file_uploaded = st.sidebar.file_uploader("Upload a file to analyze", type=["csv"
 # Upload Button
 if st.sidebar.button("Upload File"):
     if file_uploaded:
-        # Save file locally
-        file_path = f"{file_uploaded.name}"
-        with open(file_path, "wb") as f:
-            f.write(file_uploaded.getbuffer())
-        
-        # Upload to OpenAI
-        uploaded_file_id = upload_to_openai(file_path)
+        # Upload to OpenAI directly
+        uploaded_file_id = upload_to_openai(file_uploaded)
         if uploaded_file_id:
             st.session_state.file_id_list.append(uploaded_file_id)
             st.sidebar.success(f"File uploaded successfully! File ID: {uploaded_file_id}")
@@ -151,8 +141,8 @@ if st.session_state.start_chat:
             logger.info("Starting assistant run with token limits...")
             run = client.beta.threads.runs.create(
                 thread_id=st.session_state.thread_id,
-                assistant_id= ASSISTANT,
-                instructions="Please analyze the uploaded file and answer any questions based on its content.",
+                assistant_id=ASSISTANT,
+                instructions="Please analyze the uploaded file and answer any questions based on its content.", # Optional, u can add instructions here, currently im using this
             )
 
             # Wait for assistant response
