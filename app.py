@@ -14,8 +14,8 @@ logger = logging.getLogger(__name__)
 # load_dotenv()
 
 # Hardcode API Key and Assistant ID
-API_KEY = "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"  # Replace with your actual OpenAI API key
-ASSISTANT_ID = "asst_ychdxm9OrsMkQkZsxFOEmFGr"  # Replace with your actual Assistant ID
+API_KEY = st.secrets["OPENAI_API_KEY"]
+ASSISTANT = st.secrets["ASSISTANT_ID"]
 
 # Initialize OpenAI Client
 client = openai.Client(api_key=API_KEY)
@@ -151,7 +151,7 @@ if st.session_state.start_chat:
             logger.info("Starting assistant run with token limits...")
             run = client.beta.threads.runs.create(
                 thread_id=st.session_state.thread_id,
-                assistant_id=ASSISTANT_ID,
+                assistant_id= ASSISTANT,
                 instructions="Please analyze the uploaded file and answer any questions based on its content.",
             )
 
