@@ -150,5 +150,3 @@ This repository contains the code for a **Data Analyst Chatbot** built using Ope
 
 ---
 
-For any questions or suggestions, feel free to contact [davin@aiforindonesia.org].
-
