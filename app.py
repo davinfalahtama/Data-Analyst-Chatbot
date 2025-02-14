@@ -5,6 +5,7 @@ import time
 import streamlit as st
 import io
 import logging
+from instruction import INSTRUCTIONS
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -14,8 +15,8 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 
 # Initialize OpenAI Client
-client = openai.Client(api_key=st.secrets["OPENAI_API_KEY"])
-ASSISTANT = st.secrets["ASSISTANT_ID"]
+client = openai.Client(api_key=os.getenv("OPENAI_API_KEY"))
+ASSISTANT = os.getenv("ASSISTANT_ID")
 
 # Initialize Streamlit Page
 st.set_page_config(page_title="Chat with Your Data", page_icon=":bar_chart:")
@@ -142,7 +143,7 @@ if st.session_state.start_chat:
             run = client.beta.threads.runs.create(
                 thread_id=st.session_state.thread_id,
                 assistant_id=ASSISTANT,
-                instructions="Please analyze the uploaded file and answer any questions based on its content.", # Optional, u can add instructions here, currently im using this
+                instructions= INSTRUCTIONS
             )
 
             # Wait for assistant response
